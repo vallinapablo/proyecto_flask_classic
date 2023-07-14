@@ -1,0 +1,36 @@
+#msg-error  p {
+    color: firebrick;
+    padding: 10px 0;
+    text-align: center;
+}
+#msg-error  {
+    border: 1px solid firebrick;
+    background-color: rgb(233, 203, 165);
+    border-radius: 50px;
+    
+}
+
+header, footer {
+    background-color: var(--primary);
+}
+
+header p, footer p {
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.error {
+    color: firebrick;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.isDisabled {
+    color: currentColor;
+    pointer-events: none;
+    text-decoration-line: underline;
+    text-decoration-color: aliceblue;
+
+     
+}

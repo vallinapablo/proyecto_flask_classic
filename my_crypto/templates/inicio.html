@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="container">
+    <ul>
+        <li><a class="isDisabled" href="/">Inicio</a></li>
+        <li><a href="" >Compra</a></li>
+        <li><a href="" >Status</a></li>
+    </ul>
+</nav>
+
+<h1 align="center">Movimientos</h1>
+<table class="container" border="1px ">
+    {% if movements %}
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>From</th>
+        <th>Quantity</th>
+        <th>To</th>
+        <th>Quantity to </th>
+        
+    </tr>
+    
+        <tr>
+            
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+                
+        </tr>
+    {% else %}
+        <tr >
+            <th>No hay Movimientos</td>
+        </tr>
+    {% endif %}
+</table>
+{% endblock %}

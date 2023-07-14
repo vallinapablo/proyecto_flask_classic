@@ -1,2 +1,2 @@
-from mis_inversiones import app
-from mis_inversiones.routes import *
+from my_crypto import app
+from my_crypto.routes import *
