@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="container">
+    <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a class="isDisabled" href="" >Compra</a></li>
+        <li><a href="/status" >Status</a></li>
+    </ul>
+</nav>
+
+<h1 align="center">Compra de Criptos</h1>
+
+<div class="grid">
+
+    <label>From:</label>
+    <select name="currency">
+        <option value="EUR">Euros</option>
+        <option value="ETH">ETH</option>
+        <option value="BNB">BNB</option>
+        <option value="ADA">ADA</option>
+        <option value="DOT">DOT</option>
+        <option value="BTC">BTC</option>
+        <option value="USDT">USDT</option>
+        <option value="XRP">XRP</option>
+        <option value="SOL">SOL</option>
+        <option value="MATIC">MATIC</option>
+    </select>
+    
+    <label>To:</label>
+    <select name="currency" >
+        <option value="EUR">Euros</option>
+        <option value="ETH">ETH</option>
+        <option value="BNB">BNB</option>
+        <option value="ADA">ADA</option>
+        <option value="DOT">DOT</option>
+        <option value="BTC">BTC</option>
+        <option value="USDT">USDT</option>
+        <option value="XRP">XRP</option>
+        <option value="SOL">SOL</option>
+        <option value="MATIC">MATIC</option>
+    </select>
+</div>
+<div class="grid">
+    <label>Q:</label>
+    <input type="text">
+
+    <label>Q:</label>
+    <input type="text" name="" id="">
+</div>
+{% endblock %}
