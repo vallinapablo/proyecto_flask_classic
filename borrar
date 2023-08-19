@@ -1,0 +1,78 @@
+ <label>From:</label>
+    <select name="currency">
+        <option value="EUR">Euros</option>
+        <option value="ETH">ETH</option>
+        <option value="BNB">BNB</option>
+        <option value="ADA">ADA</option>
+        <option value="DOT">DOT</option>
+        <option value="BTC">BTC</option>
+        <option value="USDT">USDT</option>
+        <option value="XRP">XRP</option>
+        <option value="SOL">SOL</option>
+        <option value="MATIC">MATIC</option>
+    </select>
+    
+    <label>To:</label>
+    <select name="currency" >
+        <option value="EUR">Euros</option>
+        <option value="ETH">ETH</option>
+        <option value="BNB">BNB</option>
+        <option value="ADA">ADA</option>
+        <option value="DOT">DOT</option>
+        <option value="BTC">BTC</option>
+        <option value="USDT">USDT</option>
+        <option value="XRP">XRP</option>
+        <option value="SOL">SOL</option>
+        <option value="MATIC">MATIC</option>
+    </select>
+
+    <label>Cantidad From:</label>
+    <input type="text">
+
+    <label>Cantidad To</label>
+    <input type="text" name="" id="">
+
+
+    elif request.method == 'GET' and form.validate_on_submit():
+    try:
+        if 'calculate' in request.form:
+            moneda_from = form.moneda_from
+            moneda_to = form.moneda_to
+
+    
+
+
+     if 'calculate' in request.form:  
+                # Obtener los datos del formulario
+                currency_from = form.currency_in.data
+                quantity_in = float(form.quantity_in.data)
+
+                
+
+                # Realizar la llamada a la API para obtener la tasa de cambio
+                currency_to = form.currency_out.data
+                if currency_from == currency_to:
+                    flash("Error: Las Monedas No Pueden Ser Iguales")
+                    return render_template("purchase.html", the_form=form, date_now=fecha, p_u=precio_u)
+
+                url = f'https://rest.coinapi.io/v1/exchangerate/{currency_from}/{currency_to}?apikey={app.config.get("API_KEY")}'
+                response = requests.get(url)
+
+                
+                    # Calcular la cantidad de moneda de destino
+                    quantity_out = quantity_in * float(rate)
+
+                    session['currency_from'] = currency_from
+                    session['currency_to'] = currency_to
+
+                    return render_template("purchase.html", the_form=form, date_now=fecha, p_u=precio_u, quantity=quantity_out)
+
+
+currency_from = moneda_from
+currency_out = moneda_to
+
+                moneda_from = form.moneda_from.data
+                cantidad_from = float(form.cantidad_from.data)
+                moneda_to = form.moneda_to.data
+
+                cantidad_to = moneda_from * rate

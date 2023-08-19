@@ -10,27 +10,29 @@
 
 <h1 align="center">Movimientos</h1>
 <table class="container" border="1px ">
-    {% if movements %}
+    
     <tr>
         <th>Date</th>
         <th>Time</th>
-        <th>From</th>
-        <th>Currency from</th>
-        <th>To</th>
-        <th>Currency to </th>
+        <th>Moneda From</th>
+        <th>Cantidad from</th>
+        <th>Moneda To</th>
+        <th>Cantidad to </th>
         
     </tr>
-    
+    {% if movements %}
+        {% for movement in movements %}
         <tr>
             
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ movement.date }}</td>
+            <td>{{ movement.time }}</td>
+            <td>{{ movement.moneda_from }}</td>
+            <td>{{ movement.cantidad_from }}</td>
+            <td>{{ movement.moneda_to }}</td>
+            <td>{{ movement.cantidad_to }}</td>
                 
         </tr>
+        {% endfor %}
     {% else %}
         <tr >
             <th>No hay Movimientos</td>

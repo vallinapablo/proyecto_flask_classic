@@ -9,42 +9,36 @@
 </nav>
 
 <h1 align="center">Compra de Criptos</h1>
+<form action="/compra" method="post">   
+    {{ the_form.csrf_token}}
+   
+    <div class="grid">
+        
+        
+        {{ the_form.moneda_from.label }}
+        {{ the_form.moneda_from }}
+        {{ the_form.moneda_to.label }}
+        {{ the_form.moneda_to }}
+        
+    </div>
 
-<div class="grid">
+    <div class="grid">
 
-    <label>From:</label>
-    <select name="currency">
-        <option value="EUR">Euros</option>
-        <option value="ETH">ETH</option>
-        <option value="BNB">BNB</option>
-        <option value="ADA">ADA</option>
-        <option value="DOT">DOT</option>
-        <option value="BTC">BTC</option>
-        <option value="USDT">USDT</option>
-        <option value="XRP">XRP</option>
-        <option value="SOL">SOL</option>
-        <option value="MATIC">MATIC</option>
-    </select>
-    
-    <label>To:</label>
-    <select name="currency" >
-        <option value="EUR">Euros</option>
-        <option value="ETH">ETH</option>
-        <option value="BNB">BNB</option>
-        <option value="ADA">ADA</option>
-        <option value="DOT">DOT</option>
-        <option value="BTC">BTC</option>
-        <option value="USDT">USDT</option>
-        <option value="XRP">XRP</option>
-        <option value="SOL">SOL</option>
-        <option value="MATIC">MATIC</option>
-    </select>
-</div>
-<div class="grid">
-    <label>Q:</label>
-    <input type="text">
+        {{ the_form.cantidad_from.label }}
+        {{ the_form.cantidad_from}}
+        {{ the_form.calculate() }}
+        
+        {% if cantidad_to is not none %}
+            <p>La cantidad es: {{ the_form.cantidad_to }}</p>
+        {% endif %}
+    </div>
 
-    <label>Q:</label>
-    <input type="text" name="" id="">
-</div>
+    <div class="grid">
+        
+        
+        {{ the_form.submit }}
+    </div>
+</form>
+
+
 {% endblock %}
