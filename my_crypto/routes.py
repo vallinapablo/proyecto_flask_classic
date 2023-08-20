@@ -35,11 +35,11 @@ def purchase():
             moneda_from = form.moneda_from.data
             moneda_to = form.moneda_to.data
             cantidad_from = form.cantidad_from.data
-            cantidad_to = cantidad_to 
+            cantidad_to = form.cantidad_to.data
 
             try:
-                dao.insert(Movement(form.moneda_from.data, form.cantidad_from.data, 
-                                    form.moneda_to.data, form.cantidad_from.data))
+                dao.insert(Movement("jiji", "jaja" ,moneda_from, cantidad_from, 
+                                    moneda_to, cantidad_from))
                 return redirect("/")
             except ValueError as e:
                 flash(str(e))

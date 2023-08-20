@@ -30,6 +30,7 @@
         
         {% if cantidad_to is not none %}
             <p>La cantidad es: {{ cantidad_to }}</p>
+            <input type="hidden" name="cantidad_to" value="{{ cantidad_to }}">
         {% endif %}
 
         {{ the_form.comprar }}

@@ -13,7 +13,7 @@ class CompraForm(FlaskForm):
     
     cantidad_from =  FloatField("Cantidad from", validators=[DataRequired("Cantidad obligatoria")])
     
-    #cantidad_to = HiddenField()
+    cantidad_to = HiddenField()
     calculate = SubmitField("Calcular")
     comprar = SubmitField("Comprar") 
 
