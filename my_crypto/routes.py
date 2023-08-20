@@ -17,9 +17,9 @@ def purchase():
     if request.method == 'GET':
         return render_template("compra.html", the_form = form)
     
-    elif request.method == 'POST':
+    elif request.method == 'POST' and form.validate_on_submit():
         
-        if form.validate_on_submit():
+        if 'calculate' in request.form:
             moneda_from = form.moneda_from.data
             moneda_to = form.moneda_to.data
             cantidad_from = form.cantidad_from.data
@@ -28,13 +28,15 @@ def purchase():
             tasa_cambio = get_rate(moneda_from, moneda_to)
             if tasa_cambio is not None:
                 cantidad_to = cantidad_from * tasa_cambio
-                
-             
-        return render_template("compra.html", the_form = form, cantidad_to=cantidad_to)
+                    
+            return render_template("compra.html", the_form = form, cantidad_to=cantidad_to)
     
-       
-    else:
-        if form.validate():
+        if 'comprar' in request.form:
+            moneda_from = form.moneda_from.data
+            moneda_to = form.moneda_to.data
+            cantidad_from = form.cantidad_from.data
+            cantidad_to = cantidad_to 
+
             try:
                 dao.insert(Movement(form.moneda_from.data, form.cantidad_from.data, 
                                     form.moneda_to.data, form.cantidad_from.data))
@@ -44,6 +46,9 @@ def purchase():
                 return render_template("compra.html", the_form=form)
         else:
             return render_template("compra.html", the_form=form)
+
+   
+            
 
 
 

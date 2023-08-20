@@ -9,7 +9,7 @@
 </nav>
 
 <h1 align="center">Compra de Criptos</h1>
-<form action="/compra" method="post">   
+<form action="/purchase" method="post">   
     {{ the_form.csrf_token}}
    
     <div class="grid">
@@ -29,16 +29,15 @@
         {{ the_form.calculate() }}
         
         {% if cantidad_to is not none %}
-            <p>La cantidad es: {{ the_form.cantidad_to }}</p>
+            <p>La cantidad es: {{ cantidad_to }}</p>
         {% endif %}
-    </div>
 
-    <div class="grid">
-        
-        
-        {{ the_form.submit }}
+        {{ the_form.comprar }}
     </div>
-</form>
+</form> 
+
+    
+
 
 
 {% endblock %}
