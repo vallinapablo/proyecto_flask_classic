@@ -1,7 +1,8 @@
 from my_crypto import app
 from my_crypto.models import *
 from my_crypto.forms import *
-from flask import render_template, flash, redirect, request
+from flask import render_template, flash, redirect, request, logging
+from time import strftime
 
 dao= MovementDAOsqlite(app.config.get("PATH_SQLITE"))
 
@@ -15,6 +16,7 @@ def purchase():
     form = CompraForm()
     cantidad_to = None
     if request.method == 'GET':
+        
         return render_template("compra.html", the_form = form)
     
     elif request.method == 'POST' and form.validate_on_submit():
@@ -32,14 +34,17 @@ def purchase():
             return render_template("compra.html", the_form = form, cantidad_to=cantidad_to)
     
         if 'comprar' in request.form:
+            date = strftime("%a, %d %b %Y") 
+            time = strftime("%H:%M")
             moneda_from = form.moneda_from.data
             moneda_to = form.moneda_to.data
             cantidad_from = form.cantidad_from.data
+            
             cantidad_to = form.cantidad_to.data
 
             try:
-                dao.insert(Movement("jiji", "jaja" ,moneda_from, cantidad_from, 
-                                    moneda_to, cantidad_from))
+                dao.insert(Movement(date, time ,moneda_from, cantidad_from, 
+                                    moneda_to, cantidad_to))
                 return redirect("/")
             except ValueError as e:
                 flash(str(e))
